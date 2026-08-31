@@ -1,0 +1,78 @@
+/* Sketchy Filter Utilities */
+
+/* Light sketch effect - subtle hand-drawn look */
+.filter-sketchy-light {
+    filter: url(#sketchy-light);
+}
+
+/* Medium sketch effect - noticeable rough edges */
+.filter-sketchy-medium {
+    filter: url(#sketchy-medium);
+}
+
+/* Heavy sketch effect - very rough/distorted */
+.filter-sketchy-heavy {
+    filter: url(#sketchy-heavy);
+}
+
+/* Pencil sketch effect - fine grain texture */
+.filter-pencil-sketch {
+    filter: url(#pencil-sketch);
+}
+
+/* Paper texture - adds depth and texture */
+.filter-paper-texture {
+    filter: url(#paper-texture);
+}
+
+/* Crayon/chalk effect - rough and grainy */
+.filter-crayon {
+    filter: url(#crayon);
+}
+
+/* Watercolor blend - soft and flowing */
+.filter-watercolor {
+    filter: url(#watercolor);
+}
+
+/* Rough edge effect - jagged borders */
+.filter-rough-edge {
+    filter: url(#rough-edge);
+}
+
+/* Ink sketch - bold lines with slight distortion */
+.filter-ink-sketch {
+    filter: url(#ink-sketch);
+}
+
+/* Marker effect - smooth with slight blur */
+.filter-marker {
+    filter: url(#marker);
+}
+
+/* Combination filters for more complex effects */
+.filter-sketchy-paper {
+    filter: url(#sketchy-light) url(#paper-texture);
+}
+
+.filter-pencil-paper {
+    filter: url(#pencil-sketch) url(#paper-texture);
+}
+
+.filter-rough-watercolor {
+    filter: url(#rough-edge) url(#watercolor);
+}
+
+/* Hover effects - add animation */
+.filter-sketchy-hover {
+    transition: filter 0.3s ease;
+}
+
+.filter-sketchy-hover:hover {
+    filter: url(#sketchy-medium);
+}
+
+/* Remove filter from specific elements */
+.filter-none {
+    filter: none !important;
+}
