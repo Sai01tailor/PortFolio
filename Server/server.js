@@ -13,9 +13,23 @@ const PORT = process.env.PORT || 5000;
 
 // Security & Parsing Middleware
 app.use(helmet());
+
+const allowedOrigins = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',').map((url) => url.trim().replace(/\/+$/, ''))
+  : ['*'];
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || '*',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, server-to-server)
+      if (!origin) return callback(null, true);
+      
+      const normalizedOrigin = origin.replace(/\/+$/, '');
+      if (allowedOrigins.includes('*') || allowedOrigins.includes(normalizedOrigin)) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Origin ${origin} not allowed by CORS`));
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
